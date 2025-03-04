@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
@@ -36,5 +38,10 @@ public class User extends PanacheEntity {
 
     @Version
     public int version;
+
+    @JsonProperty("password")
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 }
