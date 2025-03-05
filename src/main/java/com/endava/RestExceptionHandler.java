@@ -46,6 +46,7 @@ public class RestExceptionHandler implements ExceptionMapper<HibernateException>
         return getExceptionInChain(throwable, exceptionClass).isPresent();
     }
 
+    @SuppressWarnings("unchecked")
     private static <T extends Throwable> Optional<T> getExceptionInChain(Throwable throwable, Class<T> exceptionClass) {
         while (throwable != null) {
             if (exceptionClass.isInstance(throwable)) {
