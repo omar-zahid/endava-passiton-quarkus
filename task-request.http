@@ -1,0 +1,47 @@
+GET localhost:8080/api/v1/tasks
+
+###
+POST localhost:8080/api/v1/tasks
+Content-Type: application/json
+
+{
+    "title": "Quarkus project",
+    "description": "This is a small description for the task"
+}
+
+### 
+GET localhost:8080/api/v1/tasks/1
+
+###
+PUT localhost:8080/api/v1/tasks/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Task title updated",
+  "description": "This is a small description for the task",
+  "priority": 1,
+  "user": {
+    "id": 0,
+    "name": "admin",
+    "roles": [
+      "admin",
+      "user"
+    ],
+    "created": "2025-03-05T13:19:53.273564Z",
+    "version": 0
+  },
+  "project": null,
+  "complete": null,
+  "created": "2025-03-05T13:19:53.308202Z",
+  "version": 0
+}
+
+###
+DELETE localhost:8080/api/v1/tasks/1
+
+###
+PUT localhost:8080/api/v1/tasks/1/complete
+Content-Type: application/json
+
+true

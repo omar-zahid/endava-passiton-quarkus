@@ -1,0 +1,27 @@
+GET localhost:8080/api/v1/projects
+
+###
+POST localhost:8080/api/v1/projects
+Content-Type: application/json
+
+{
+    "name": "Quarkus project"
+}
+
+### 
+GET localhost:8080/api/v1/projects/1
+
+###
+PUT localhost:8080/api/v1/projects/1
+Content-Type: application/json
+
+{
+    "name": "Name updated",
+    "user": {
+        "id": 0
+    },
+    "version": 0
+}
+
+###
+DELETE localhost:8080/api/v1/projects/1
