@@ -5,6 +5,7 @@ import java.util.List;
 import org.jboss.resteasy.reactive.ResponseStatus;
 
 import io.smallrye.mutiny.Uni;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -14,6 +15,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/api/v1/users")
+@RolesAllowed("admin")
 public class UserResource {
 
     private final UserService userService;
@@ -43,6 +45,7 @@ public class UserResource {
 
     @GET
     @Path("self")
+    @RolesAllowed("user")
     public Uni<User> self() {
         return userService.getCurrentUser();
     }
